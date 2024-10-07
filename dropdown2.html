@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+/* mega menu  */
+
+.navbar-content .mega-menu {
+  position: absolute;
+  top: 57px;
+  left: 0;
+  display: flex;
+  background-color: #ffffff;
+  width: 98.6vw;
+  /* height: 58vh; */
+  line-height: 20px;
+  padding: 10px;
+  color: #222;
+  border-top: 0.2px solid rgb(221, 219, 219);
+  border-bottom: 1px solid rgb(180, 177, 177);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.mega-menu .row ,
+.conscious-beauty-image{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.navbar-content .mega-menu li {
+  list-style-type: none;
+  text-transform: none;
+}
+
+.navbar-content .mega-menu h4 {
+  color: #e58797f2;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.navbar-content .mega-menu .row {
+  padding: 10px 20px;
+  border-left: 0.2px solid #bfb9b9;
+}
+
+/* image inside mega menu */
+
+
+
+.conscious-beauty-image img {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.navbar #item1:hover .mega-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mega-menu h4:hover {
+  color: #222;
+}
+
+/* routines's drop down menu  */
+
+.navbar .routines-inside {
+  background: #ffffff;
+  width: 180px;
+  top: 50px;
+  line-height: 40px;
+  position: absolute;
+  text-transform: none;
+ opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 0.1px 13px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.routines-inside li {
+  list-style-type: none;
+}
+
+.routines-inside li a {
+  
+  padding: 0 0 0 15px;
+  font-weight: 400;
+}
+
+.navbar #item3:hover .routines-inside {
+  top: 60px;
+  visibility: visible;
+  opacity: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar-content" style="display: flex;">
+        <ul class="navbar">
+            <li id="item1" class="nav-item"><a href="">shop all</a>
+                <!-- section of mega menu  -->
+                <div class="mega-menu">
+                    <div class="row" style="border: none;">
+                        <h4> shop</h4>
+                        <ul class="shopall-inside">
+                            <li><a href="">All Products</a></li>
+                            <li><a href="">New arrivals</a></li>
+                            <li><a href="">Best Sellers</a></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <ul class="shopall-inside">
+                            <h4> skin care</h4>
+                            <li><a href="">Double cleansing products</a></li>
+                            <li><a href="">Exfoliaters</a></li>
+                            <li><a href="">Toners</a></li>
+                            <li><a href="">Essences</a></li>
+                            <li><a href="">Serums and Ampoules</a></li>
+                            <li><a href="">Masks</a></li>
+                            <li><a href="">Best acne spot treatment</a></li>
+                            <li><a href="">eye creams & Serums</a></li>
+                            <li><a href="">Moisturizers</a></li>
+                            <li><a href="">Sunscreens</a></li>
+                            <li><a href="">Hair & Body</a></li>
+                            <li><a href="">Makeup & Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="row" style=" border-right: 0.px solid #bfb9b9;">
+                        <ul class="shopall-inside">
+                            <h4> skin concern</h4>
+                            <li><a href="">Effective Acne Skincare Products</a></li>
+                            <li><a href="">Best anti aging products online</a></li>
+                            <li><a href="">Hydrating dry skincare products</a></li>
+                            <li><a href="">Open pores/Oil control skincare products</a></li>
+                            <li><a href="">Pigmentation skincare products</a></li>
+                            <li><a href="">Facial redness reducing products</a></li>
+                            <li><a href="">sensitve skin products</a></li>
+                        </ul>
+                    </div>
+                    <div class="row" style="border-right: 0.2px solid #bfb9b9;">
+                        <h4>browse more</h4>
+                        <h4>skin type</h4>
+                        <ul class="shopall-inside">
+                            <li><a href="">Oily</a></li>
+                            <li><a href="">Dry</a></li>
+                            <li><a href="">Combination</a></li>
+                            <li><a href="">Normal</a></li>
+                            <h4>professional treatments</h4>
+                            <li><a href="">Stayve</a></li>
+                            <li><a href="">Ribeskin</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- the image inside mega-menu  -->
+                    <div class="conscious-beauty-image" style="align-items: center;">
+                        <img src="image/conscious-beauty-header.jpg" alt="conscious-beauty-image">
+                        <a href="" style="text-decoration: none;">
+                            <h5>Conscious Beauty</h5>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- mega-menu ends here -->
+
+            <li id="item2"><a href="#pcard">best sellers</a></li>
+
+            <!-- routines's drop down menu -->
+            <li id="item3"><a href="">routines</a>
+                <ul class="routines-inside">
+                    <li><a href="">Collection</a></li>
+                    <li><a href="">Travel kits & minis</a></li>
+                </ul>
+            </li>
+            <!-- drop down menu ends here -->
+            <li id="item4"><a href="#brand">brands</a></li>
+            <li id="item5"><a href="#deal">hot deals</a></li>
+            <li id="item6"><a href="#sub">join</a></li>
+
+        </ul>
+    </div>
+</body>
+</html>

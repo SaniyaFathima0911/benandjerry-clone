@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 9%;
+    box-shadow: 1px 0px 5px gray;
+}
+header .logo {
+    font-size: 2em;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+header .navbar a {
+    color: #fff;
+    font-size: 19px;
+    margin: 0.8rem;
+}
+.hamburger-icon {
+    border: none;
+    background-color: transparent;
+}
+.hamburger-icon #dropdown {
+    appearance: none;
+}
+header .icons i {
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+.fa-user:before {
+    content: "\f007";
+}
+header:has(.hamburger-icon #dropdown:checked) .search-bar-container {
+    display: block;
+}
+header .search-bar-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    border-top: .1rem solid rgba(255, 255, 255, .2);
+}
+.hamburger-icon1 {
+    display: none;
+}
+.hamburger-icon1 {
+    border: none;
+    background-color: transparent;
+}
+.hamburger-icon1 .fa-bars, .hamburger-icon1 #x-icon {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.hamburger-icon1 #dropdown1 {
+    appearance: none;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="icons">
+        <button class="hamburger-icon" fdprocessedid="jo5kz">
+            <label for="dropdown">
+                <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
+            </label>
+            <input type="checkbox" id="dropdown">
+        </button>
+    </div>
+
+    <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="search here...">
+    </form>
+    <button class="hamburger-icon1">
+        <label for="dropdown1">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <input type="checkbox" id="dropdown1">
+    </button> 
+</header>
+</body>
+</html>

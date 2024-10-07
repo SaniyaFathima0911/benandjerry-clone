@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben&Jerry's</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 1330;
+    }
+
+    .navbar {
+        display: flex;
+        font-family: "Zilla Slab", sans-serif;
+        font-weight: 800;
+        padding: 0px 6px;
+    }
+
+    header .logo {
+        font-size: 2em;
+        font-weight: bolder;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    /* 
+    #logo1 {
+        margin: 6px 20px;
+    } */
+
+    #logo1 img {
+        height: 60px;
+        margin: 15px 20px;
+    }
+
+    .navbar ul {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        list-style: none;
+        font-size: 1.5rem;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .navbar ul li a:hover {
+        color: rgb(50, 50, 112);
+    }
+
+    .menu-icon {
+        font-weight: 100;
+        position: absolute;
+        right: 0.5rem;
+        bottom: 1.5rem;
+        display: none;
+        font-size: 40px;
+        cursor: pointer;
+
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .hamburger-icon {
+        border: none;
+        background-color: transparent;
+    }
+
+    .hamburger-icon #dropdown {
+        appearance: none;
+    }
+
+    header .icons i {
+        font-size: 34px;
+        color: black;
+        cursor: pointer;
+        /* margin-right: 2rem; */
+        position: absolute;
+        right: 0;
+        top: 1.3rem;
+    }
+
+    .fa-user:before {
+        content: "\f007";
+    }
+
+    header:has(.hamburger-icon #dropdown:checked) .search-bar-container {
+        display: block;
+    }
+
+    header .search-bar-container {
+        width: 100%;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 0;
+        border-top: .1rem solid rgba(255, 255, 255, .2);
+        font-size: 20px;
+        background-color: white;
+
+    }
+
+    .search {
+        width: 80%;
+        height: 50px;
+        text-indent: 2%;
+        display: flex;
+        margin: auto;
+    }
+
+    .search-bar-container ::placeholder {
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .hamburger-icon1 {
+        display: none;
+    }
+
+    .hamburger-icon1 {
+        border: none;
+        background-color: transparent;
+    }
+
+    .hamburger-icon1 .fa-bars {
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .hamburger-icon1 #dropdown1 {
+        appearance: none;
+        width: 100%;
+    }
+
+    .nav-links {
+        overflow: hidden;
+    }
+
+    .nav-links a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        font-family: "Zilla Slab", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        border: none;
+        outline: none;
+        color: black;
+        /* padding: 14px 16px; */
+        background-color: inherit;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+        color: rgb(53, 53, 129);
+        text-decoration: underline;
+    }
+
+    .dropdown-content {
+        width: 100%;
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: white;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        /* z-index: 1; */
+    }
+
+    .dropdown-content a {
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        float: none;
+        color: black;
+        padding: 20px 20px;
+        line-height: 20px;
+        text-decoration: none;
+        display: block;
+        /* flex-direction: row;
+        flex-wrap: wrap;
+        text-align: left; */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: left;
+    }
+
+    .dropdown-content ul {
+        margin: 3%;
+        gap: 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #About {
+        display: none;
+    }
+
+    #Contact {
+        display: none;
+    }
+
+    #new {
+        display: none;
+    }
+
+    .icecream {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Zilla Slab", sans-serif;
+        background-color: #fed831;
+    }
+
+    .mango {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 50px;
+
+
+    }
+
+    .mango h1 {
+        /* margin-bottom: 16px; */
+        font-weight: 700;
+        font-size: 40px;
+    }
+
+    .mango p {
+        font-weight: 400;
+        line-height: 30px;
+        font-size: 19px;
+    }
+
+    .mango button {
+        border: none;
+        font-weight: 600;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 15px 20px;
+        /* margin-top: 20px; */
+        cursor: pointer;
+    }
+
+    .mango button:hover {
+        background-color: rgb(226, 225, 225);
+    }
+
+    .cone {
+        width: 55%;
+        height: 100vh;
+    }
+
+    .cone img {
+        /* max-width: 100%; */
+        width: 100%;
+        height: 100vh;
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    .content {
+        padding-top: 2%;
+        width: 95%;
+        margin: auto;
+    }
+
+    .head {
+        font-family: "Zilla Slab", sans-serif;
+        font-size: 45px;
+        font-weight: 800;
+        padding: 45px 0px 23px 3%;
+    }
+
+    .where {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .get {
+        width: 46%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .get img {
+        width: 100%;
+        border-radius: 14px;
+    }
+
+    .get h1 {
+        font-family: "Zilla Slab", sans-serif;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+
+    .get p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+    }
+
+
+
+    .where button {
+        border: none;
+        font-weight: 600;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 16px 22px;
+        cursor: pointer;
+        background-color: #ffbc0e;
+    }
+
+    .where button:hover {
+        background-color: #f3d550;
+    }
+
+    .world {
+        width: 100%;
+        height: 100vh;
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Zilla Slab", sans-serif;
+        background-color: rgb(32 20 96);
+        margin-bottom: 40px;
+    }
+
+    .hands {
+        width: 55%;
+        height: 100%;
+    }
+
+    .hands img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .involved {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 50px;
+    }
+
+    .involved h1 {
+
+        font-weight: 700;
+        font-size: 40px;
+        color: white;
+    }
+
+    .involved p {
+        font-weight: 400;
+        line-height: 32px;
+        font-size: 20px;
+        color: white;
+    }
+
+    .involved button {
+        border: none;
+        font-weight: 600;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 16px 22px;
+        cursor: pointer;
+        background-color: #ffbc0e;
+    }
+
+    .involved button:hover {
+        background-color: #f3d550;
+    }
+
+    .whole {
+        margin-top: 60px;
+    }
+
+    .heads {
+        font-family: "Zilla Slab", sans-serif;
+        /* padding-top: 50px;
+        padding-left: 4%;
+        padding-bottom: 18px; */
+        padding: 24px 5%;
+        font-size: 30px;
+        font-size: 45px;
+        font-weight: 800;
+    }
+
+    .topstories {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .span {
+        font-family: "Open Sans", sans-serif;
+        color: rgb(54, 53, 53);
+        font-weight: 600;
+    }
+
+    .prison {
+        width: 28%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .prison img {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .prison h1 {
+        font-family: "Zilla Slab", sans-serif;
+        font-size: 28px;
+        font-weight: bolder;
+    }
+
+    .prison p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        line-height: 31px;
+
+    }
+
+    .set {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .idea {
+        width: 28%;
+    }
+
+    .idea img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+
+    .idea h1 {
+        font-family: "Zilla Slab", sans-serif;
+        font-size: 28px;
+        font-weight: bolder;
+    }
+
+    .idea p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        line-height: 31px;
+    }
+
+    .read {
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+        color: rgb(0 47 135);
+        font-size: 20px;
+    }
+
+    .whole button {
+        border: none;
+        font-weight: 600;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 16px 22px;
+        cursor: pointer;
+        background-color: #ffbc0e;
+    }
+
+    .whole button:hover {
+        background-color: #f3d550;
+    }
+
+    .support {
+        margin-top: 60px;
+        width: 100%;
+        background-color: #c4e7f3;
+        padding-bottom: 12rem;
+    }
+
+    .making {
+        width: 90%;
+        margin: auto;
+    }
+
+    .making h2 {
+        font-family: "Zilla Slab", sans-serif;
+        font-size: 48px;
+        font-weight: 800;
+        padding: 75px 0;
+    }
+
+    .better {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo1 {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .logo1 img {
+        width: 30%;
+    }
+
+    .logo1 h1 {
+        font-family: "Zilla Slab", sans-serif;
+        font-size: 29px;
+        font-weight: bolder;
+    }
+
+    .logo1 p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        line-height: 31px;
+
+    }
+
+    .foot {
+        width: 100%;
+        background-color: #3f833f;
+    }
+
+    .footer {
+        width: 90%;
+        margin: auto;
+        padding-left: 60px;
+        /* height: 686px; */
+        position: relative;
+    }
+
+    .cow {
+        display: flex;
+        justify-content: flex-end;
+        position: absolute;
+        right: 30px;
+        top: -150px;
+    }
+
+    .main {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+    }
+
+    .footer1 {
+        width: 30%;
+        padding-top: 6rem;
+    }
+
+    .footer1 h1 {
+        font-family: "Zilla Slab", sans-serif;
+        color: white;
+        font-size: 30px;
+        font-weight: bolder;
+        padding-bottom: 14px;
+    }
+
+    .footer1 p {
+        font-family: "Open Sans", sans-serif;
+        color: white;
+        font-size: 18px;
+        line-height: 29px;
+        padding-bottom: 18px;
+    }
+
+    .form {
+        display: flex;
+    }
+
+    .control {
+        display: block;
+        width: 50%;
+        padding: 10px 10px;
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #141414;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #676767;
+        appearance: none;
+        border-top-left-radius: .375rem;
+        border-bottom-left-radius: .375rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        outline: none;
+    }
+
+    .control:hover {
+        border: 5px solid rgb(23, 23, 71);
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        border: 0;
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        font-size: 1rem;
+        line-height: 1rem;
+        justify-content: center;
+        padding: .1rem 1rem;
+        color: #141414;
+        border: 2px solid rgba(0, 0, 0, 0);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        --box-shadow-color: #ffbc0e;
+        background-color: #ffbc0e;
+    }
+
+    .btn:hover {
+        border: 5px solid rgb(23, 23, 71);
+    }
+
+    .footer1 li {
+        list-style: none;
+        font-family: "Open Sans", sans-serif;
+        color: white;
+        font-size: 20px;
+        line-height: 40px;
+
+    }
+
+    .footer1 li a {
+        text-decoration: none;
+    }
+
+    .footer1 li:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        color: white;
+    }
+
+    .icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .icons i {
+        font-weight: 700;
+        font-size: 20px;
+        border: 4px solid white;
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .social {
+        margin-top: 20px;
+    }
+
+    .final {
+        width: 100%;
+        display: flex;
+    }
+
+    .flag {
+        width: 30%;
+        padding: 10px;
+    }
+
+    .flag img {
+        height: 30px;
+        width: 50px;
+    }
+
+    .connection {
+        width: 70%;
+        margin-bottom: 40px;
+        margin-right: 30px;
+    }
+
+    .connection ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .connection li {
+        list-style: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .connection li a:hover {
+        text-decoration: underline;
+        color: white;
+    }
+
+    .connection li a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .connection p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color: white;
+        line-height: 50px;
+    }
+
+    .para {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color: white;
+        padding-bottom: 200px;
+    }
+
+    p {
+        font-size: clamp(10px, 20px, 30px);
+    }
+
+    @media (min-width:1420px) and (max-width: 2000px) {
+        #About {
+            display: block;
+        }
+
+        #new {
+            display: block;
+        }
+
+        #Contact {
+            display: block;
+        }
+
+        .icecream {
+            height: 60rem;
+        }
+
+        .mango {
+            width: 100%;
+        }
+
+        .cone {
+            width: 100%;
+            height: 60rem;
+        }
+
+        .cone img {
+            height: 60rem;
+            object-fit: cover;
+        }
+        .control{
+            width: 80%;
+        }
+        
+    }
+
+    @media (min-width:1145px) and (max-width: 1420px) {
+        #About {
+            display: block;
+        }
+
+        .icecream {
+            height: 40rem;
+        }
+
+        .mango {
+            width: 100%;
+        }
+
+        .cone {
+            width: 100%;
+            height: 40rem;
+        }
+
+        .cone img {
+            height: 40rem;
+            object-fit: cover;
+        }
+        .control{
+            width: 80%;
+        }
+
+    }
+
+    @media (min-width:900px) and (max-width: 1145px) {
+        .nav-links {
+            position: absolute;
+            top: 60px;
+            left: -100%;
+            width: 100%;
+            margin-top: 30px;
+            height: calc(100vh - 60px);
+            background-color: #fff;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .menu-toggle:checked+.menu-icon+.nav-links {
+            left: 0;
+        }
+        .dropdown-content ul {
+            display: none;
+        }
+
+        .dropbtn i {
+            display: none;
+        }
+
+        header .icons i {
+            font-size: 34px;
+            color: black;
+            cursor: pointer;
+            margin-right: 2rem;
+            position: absolute;
+            right: 10px;
+            top: 0.9rem;
+        }
+        .icecream {
+            flex-wrap: wrap-reverse;
+            height: auto;
+        }
+
+        .mango {
+            width: 100%;
+        }
+
+        .cone {
+            width: 100%;
+            height: 65rem;
+        }
+
+        .cone img {
+            height: 65rem;
+            object-fit: cover;
+        }
+
+        .world {
+            flex-wrap: wrap;
+            height: auto;
+        }
+
+        .hands {
+            width: 100%;
+            height: 55rem;
+        }
+
+        .hands img {
+            height: 55rem;
+        }
+
+        .involved {
+            width: 100%;
+            height: 100%;
+        }
+
+        .where {
+            width: 100%;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center; 
+            gap: 40px;
+        }
+
+        .get {
+            width: 100%;
+        }
+
+        .heads {
+            padding: 24px 5%;
+        }
+
+        .topstories {
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .prison {
+            width: 90%;
+            margin: auto;
+        }
+
+        .prison img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .idea {
+            width: 90%;
+            margin: auto;
+        }
+
+        .idea img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .better {
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .making h2 {
+            font-size: 34px;
+            padding: 50px 0;
+        }
+
+        .logo1 {
+            align-items: center;
+            width: 90%;
+            margin: auto;
+            padding: 20px 0;
+            gap: 10px;
+        }
+        .logo1 img{
+            width: 18%;
+        }
+        .main {
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            padding: 0;
+        }
+
+        .footer1 {
+            width: 100%;
+        }
+        .icons{
+            width: 50%;
+        }
+        .para{
+            padding-bottom: 50px;
+        }
+    }
+
+    @media (min-width:700px) and (max-width: 900px) {
+        .nav-links {
+            position: absolute;
+            top: 60px;
+            left: -100%;
+            width: 100%;
+            margin-top: 30px;
+            height: calc(100vh - 60px);
+            background-color: #fff;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .menu-toggle:checked+.menu-icon+.nav-links {
+            left: 0;
+        }
+        .dropdown-content ul {
+            display: none;
+        }
+
+        .dropbtn i {
+            display: none;
+        }
+
+        header .icons i {
+            font-size: 34px;
+            color: black;
+            cursor: pointer;
+            margin-right: 2rem;
+            position: absolute;
+            right: 10px;
+            top: 0.9rem;
+        }
+        
+        .icecream {
+            flex-wrap: wrap-reverse;
+            height: auto;
+        }
+
+        .mango {
+            width: 100%;
+        }
+
+        .cone {
+            width: 100%;
+            height: 55rem;
+        }
+
+        .cone img {
+            height: 55rem;
+            object-fit: cover;
+        }
+
+        .world {
+            flex-wrap: wrap;
+            height: auto;
+        }
+
+        .hands {
+            width: 100%;
+            height: 50rem;
+        }
+
+        .hands img {
+            height: 50rem;
+
+        }
+
+        .involved {
+            width: 100%;
+            height: 100%;
+        }
+
+        .where {
+            width: 100%;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .get {
+            width: 100%;
+        }
+
+        .heads {
+            padding-top: 0;
+        }
+
+        .topstories {
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .prison {
+            width: 90%;
+            margin: auto;
+        }
+
+        .prison img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .idea {
+            width: 90%;
+            margin: auto;
+        }
+
+        .idea img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .better {
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 50px;
+        }
+
+        .making h2 {
+            font-size: 34px;
+            padding: 50px 0;
+        }
+
+        .logo1 {
+            align-items: center;
+            width: 90%;
+            margin: auto;
+            gap: 10px;
+        }
+        .logo1 img{
+            width: 20%;
+        }
+        .main {
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            padding: 0;
+        }
+
+        .footer1 {
+            width: 100%;
+        }
+        .icons{
+            width: 50%;
+        }
+        .para{
+            padding-bottom: 50px;
+        }
+    }
+
+    @media (min-width:576px) and (max-width: 700px) {
+
+        .nav-links {
+            position: absolute;
+            top: 60px;
+            left: -100%;
+            width: 100%;
+            margin-top: 30px;
+            height: calc(100vh - 60px);
+            background-color: #fff;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .menu-toggle:checked+.menu-icon+.nav-links {
+            left: 0;
+        }
+
+        .dropdown-content ul {
+            display: none;
+        }
+
+        .dropbtn i {
+            display: none;
+        }
+
+        header .icons i {
+            font-size: 34px;
+            color: black;
+            cursor: pointer;
+            margin-right: 2rem;
+            position: absolute;
+            right: 10px;
+            top: 0.9rem;
+        }
+
+        .icecream {
+            flex-wrap: wrap-reverse;
+            height: auto;
+        }
+
+        .mango {
+            width: 100%;
+        }
+
+        .cone {
+            width: 100%;
+            height: 45rem;
+        }
+
+        .cone img {
+            height: 45rem;
+            object-fit: cover;
+        }
+
+        .world {
+            flex-wrap: wrap;
+            height: auto;
+        }
+
+        .hands {
+            width: 100%;
+        }
+
+        .involved {
+            width: 100%;
+        }
+
+        .where {
+            width: 100%;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .get {
+            width: 100%;
+        }
+
+        .heads {
+            padding-top: 0;
+        }
+
+        .topstories {
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .prison {
+            width: 90%;
+            margin: auto;
+        }
+
+        .prison img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .idea {
+            width: 90%;
+            margin: auto;
+        }
+
+        .idea img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .better {
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 50px;
+        }
+
+        .making h2 {
+            font-size: 34px;
+            padding: 50px 0;
+        }
+
+        .logo1 {
+            align-items: center;
+            width: 90%;
+            margin: auto;
+            gap: 10px;
+        }
+         .logo1 img{
+            width: 20%;
+         }
+        .main {
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            padding: 0;
+        }
+
+        .footer1 {
+            width: 100%;
+        }
+        .icons{
+            width: 50%;
+        }
+        .para{
+            padding-bottom: 50px;
+        }
+    }
+
+    @media (min-width:300px) and (max-width: 576px) {
+        .nav-links {
+            position: absolute;
+            top: 42px;
+            left: -100%;
+            width: 100%;
+            margin-top: 30px;
+            height: calc(100vh - 60px);
+            background-color: #fff;
+            flex-direction: column;
+            align-items: center;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+        .navbar ul{
+            gap: 10px;
+        }
+        .menu-icon {
+            display: block;
+            bottom: 1.2rem;
+            font-size: 30px;
+        }
+
+        .menu-toggle:checked+.menu-icon+.nav-links {
+            left: 0;
+        }
+
+        .dropdown-content ul {
+            display: none;
+        }
+
+        .dropbtn i {
+            display: none;
+        }
+
+        header .icons i {
+            /* font-size: 28px;
+            color: black;
+            cursor: pointer;
+            margin-right: 2rem;
+            position: absolute;
+            right: 0;
+            top: 0.7rem; */
+            display: none;
+        }
+
+        #logo1 img {
+            height: 50px;
+            margin: 10px 12px;
+        }
+
+        .mango button {
+            border: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 16px;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        .where button {
+            border: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 16px;
+            padding: 8px 14px;
+            cursor: pointer;
+            background-color: #ffbc0e;
+        }
+
+        .whole button {
+            border: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 16px;
+            padding: 8px 14px;
+            cursor: pointer;
+            background-color: #ffbc0e;
+        }
+        .involved button{
+            border: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 16px;
+            padding: 8px 14px;
+            cursor: pointer;
+            background-color: #ffbc0e;
+        }
+        .read {
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 14px !important;
+            line-height: 22px !important;
+        }
+
+        h1 {
+            font-size: 22px !important;
+        }
+
+        .icecream {
+            flex-wrap: wrap-reverse;
+            height: auto;
+        }
+
+        .mango {
+            width: 100%;
+            padding: 30px;
+        }
+
+        .mango h1 {
+            font-size: 32px !important;
+        }
+
+        .cone {
+            width: 100%;
+            height: 35rem;
+        }
+
+        .cone img {
+            height: 35rem;
+            object-fit: cover;
+        }
+
+        .world {
+            flex-wrap: wrap;
+            height: auto;
+        }
+
+        .hands {
+            width: 100%;
+            height: 35rem;
+        }
+        .hands img{
+            height: 35rem;
+        }
+        .involved {
+            width: 100%;
+            padding: 30px;
+        }
+
+        .head {
+            font-size: 30px !important;
+        }
+
+        .heads {
+            padding: 0 4%;
+            font-size: 30px !important;
+        }
+
+        .where {
+            width: 100%;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .get {
+            width: 100%;
+            gap: 10px;
+        }
+
+        .set {
+            gap: 10px;
+        }
+
+        .topstories {
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .prison {
+            width: 90%;
+            margin: auto;
+            gap: 10px;
+        }
+
+        .prison img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .topstories {
+            flex-wrap: wrap;
+        }
+
+        .prison img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .whole {
+            margin: 0;
+        }
+
+        .idea {
+            width: 90%;
+            margin: auto;
+        }
+
+        .idea img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .better {
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .making h2 {
+            font-size: 24px;
+            padding: 40px 0;
+        }
+
+        .logo1 {
+            align-items: center;
+            width: 90%;
+            margin: auto;
+            gap: 10px;
+        }
+
+        .support {
+            padding-bottom: 10rem;
+        }
+
+        .cow {
+            height: 160px;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            right: 22px;
+            top: -104px;
+        }
+
+        .main {
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            padding: 0;
+        }
+
+        .footer1 {
+            width: 100%;
+            padding-top: 5rem;
+        }
+
+        .footer1 li {
+            font-size: 15px;
+            line-height: 12px;
+            padding-bottom: 12px;
+        }
+
+        .icons i {
+            padding: 8px;
+            font-size: 16px;
+        }
+        .icons{
+            width: 80%;
+        }
+        .connection li {
+            font-size: 16px;
+            line-height: 18px;
+        }
+
+        .control {
+            width: 70%;
+            padding: 4px 6px;
+            font-size: 14px;
+        }
+        .para{
+            padding-bottom: 50px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+
+        <header>
+            <nav class="navbar">
+                <div id="logo1">
+                    <img src="logo1.png" alt>
+                </div>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <button class="dropbtn">Ice Cream Flavors
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Our Flavors</a></li>
+                                    <li><a href="#">Ice Cream Pints</a></li>
+                                    <li><a href="#">Non-Dairy Pints</a></li>
+                                    <li><a href="#">Cores Ice Cream Pints</a></li>
+                                    <li><a href="#">Frozen Yogurt Pints</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Mini Cups</a></li>
+                                    <li><a href="#">Cookie Dough Chunks</a></li>
+                                    <li><a href="#">Scoop Shop Flavors</a></li>
+                                    <li><a href="#">Doggie Deserts</a></li>
+                                    <li><a href="#">Topped</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Chocolatey Love A-Fair</a></li>
+                                    <li><a href="#">Certified Gluten-Free Flavors</a></li>
+                                    <li><a href="#">Ice Cream Recipes</a></li>
+                                    <li><a href="#">Flavor Graveyard</a></li>
+                                    <li><a href="#">Allergens</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn">Where to Buy
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Overview
+                                        </a></li>
+                                    <li><a href="#">
+                                            Instant Ice Cream Delivery Near Me
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Grocery Delivery Near Me</a></li>
+                                    <li><a href="#">Grocery Stores Near Me</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Scoop Shops & Catering Near Me</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="scoop">Shops & Caterings
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Overview</a></li>
+                                    <li><a href="#">Our Menu</a></li>
+                                    <li><a href="#">Ice Cream Catering</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Ice Cream Cakes</a></li>
+                                    <li><a href="#">Ice Cream Takeout</a></li>
+                                    <li><a href="#">
+                                            Gift Cards</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 400px;">
+                                    <li><a href="#">Flavor Fanatics</a></li>
+                                    <li><a href="#">
+                                            Free Cone Day</a></li>
+                                    <li><a href="#">
+                                            Find A Scoop Shop</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="Activism">Activism
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <ul style="width: 300px;">
+                                    <li><a href="#">Overview</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 300px;">
+                                    <li><a href="#">How We Do Business</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 300px;">
+                                    <li><a href="#">
+                                            Issues We Care About</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul style="width: 300px;">
+                                    <li><a href="#">Our Progressive Values
+                                        </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="About">About Us
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="new">What's new
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn" id="Contact">Contact Us
+                        </button>
+                    </li>
+                    <!-- <li class="item"><a href="#">About Us</a><i class="fa-solid fa-caret-down" style="color: #000000;"></i></li> -->
+                    <!-- <li class="item"><a href="#">Whats New</a></li> -->
+                    <!-- <li class="item"><a href="#">Contact Us</a></li> -->
+                </ul>
+                <div class="icons">
+                    <button class="hamburger-icon" fdprocessedid="jo5kz">
+                        <label for="dropdown">
+                            <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
+                        </label>
+                        <input type="checkbox" id="dropdown">
+                    </button>
+                </div>
+
+                <form action="" class="search-bar-container">
+                    <input type="search" class="search" id="search-bar" placeholder="Search Our Website">
+                </form>
+
+                <button class="hamburger-icon1">
+                    <label for="dropdown1">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                    <input type="checkbox" id="dropdown1">
+                </button>
+            </nav>
+        </header>
+        <section>
+            <div class="icecream" id="Ice Cream">
+                <div class="mango">
+                    <h1>ManGO For It!</h1>
+                    <p>You've never had mango ice cream like this before! With a
+                        collision of mango and sweet cream ice creams, this is
+                        the summer's coolest scoop. Exclusively at your local
+                        Scoop Shop!</p>
+                    <button>Get the Scoop</button>
+                </div>
+                <div class="cone">
+                    <img src="image1mangowaffles.jpg" alt>
+                </div>
+            </div>
+            <div class="content">
+                <h1 class="head" id="Where to Buy">Where to Buy</h1>
+                <div class="where">
+                    <div class="get">
+                        <img src="image2where.jpg" alt="">
+                        <h1>Get Ice Cream</h1>
+                        <p>Find your closest retailer or delivery partner today.</p>
+                        <button>Get Ice Cream</button>
+                    </div>
+                    <div class="get">
+                        <img src="image3where.jpg" alt="">
+                        <h1>Shops & Catering</h1>
+                        <p>Find your favorite flavors at a Scoop Shop near you.</p>
+                        <button>Find Shops & Catering</button>
+                    </div>
+                </div>
+            </div>
+            <div class="world">
+                <div class="hands">
+                    <img src="image4get_involved.jpg" alt="">
+                </div>
+                <div class="involved">
+                    <h1>Get Involved</h1>
+                    <p>We build awareness and support for the social & environmental issues that we feel strongly about.
+                        Find out how you can help.</p>
+                    <button>Learn More About Our Values</button>
+                </div>
+            </div>
+            <div class="whole">
+                <h1 class="heads" id="Shops&Caterings">Shops & Caterings</h1>
+                <div class="topstories">
+                    <div class="prison">
+                        <img src="image11shop.jpg" alt="">
+                        <h1>Ben & Jerry's Scoop Shops</h1>
+                        <p>Back in 1978 when Ben and Jerry first dished out ice cream in their downtown Burlington, VT
+                            scoop shop, it was a place where friends hung out and good vibes flowed over euphoric
+                            flavors.Today, our locally owned and operated scoop shops are still gathering places</p>
+                        <button>See Our Menu</button>
+                    </div>
+                    <div class="prison">
+                        <img src="image8shop.jpg" alt="">
+                        <h1>Ice Cream Catering</h1>
+                        <p>Office party coming up? Lobby event in your office building? Birthday party? Even a wedding?
+                            Aren’t you bored with the same old same old taco bar or tired sheet cake? Ben & Jerry’s Ice
+                            Cream Catering specializes in serving your favorite flavors in cups, cones, and sundaes</p>
+                        <button>Cater A Party</button>
+                    </div>
+                    <div class="prison">
+                        <img src="image9shop.jpg" alt="">
+                        <h1>Ice Cream Cakes</h1>
+                        <p>We have an ice cream cake for every occasion! Our fans love them for office parties, Mother’s
+                            Day, Father's Day, Valentine's Day, graduation parties, and birthdays! Choose a ready-to-go
+                            ice cream cake for the spur of the moment party or create a custom cake</p>
+                        <button>Order a Cake</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="whole" id="Activism">
+                <h1 class="heads">Top Stories</h1>
+                <div class="topstories">
+                    <div class="idea">
+                        <img src="image5top.jpg" alt="">
+                        <div class="set">
+                            <span class="span">AUGUST 29, 2024</span>
+                            <h1>Hey, Vermont! Let’s Invest in Women, Not Prisons</h1>
+                            <p>Vermont has some of the lowest crime and incarceration rates in the country. So why are
+                                elected officials here proposing to spend $70 million on a new women’s prison? Read on
+                                to
+                                find out why we think it’s a terrible idea.</p>
+                            <a class="read" href="#">Read more</a>
+                        </div>
+                    </div>
+                    <div class="idea">
+                        <img src="image6top.jpg" alt="">
+                        <div class="set">
+                            <span class="span">AUGUST 21, 2024</span>
+                            <h1>Guilty Until Proven Wealthy? Not in Illinois! Find Out Why</h1>
+                            <p>Illinois just ended cash bail last year—and now they’re making sure that people awaiting
+                                trial have the support and services they need to succeed. Here’s why that’s a huge
+                                victory
+                                for fairness and justice.</p>
+                            <a class="read" href="#">Read more</a>
+                        </div>
+                    </div>
+                    <div class="idea">
+                        <img src="image7top.jpg" alt="">
+                        <div class="set">
+                            <span class="span">JULY 29, 2024</span>
+                            <h1>QUIZ: Can You Guess the Ben & Jerry’s Flavor?</h1>
+                            <p>How well do you know your favorite Ben & Jerry’s flavors? See if you can identify them
+                                just
+                                from their chunks and swirls alone!</p>
+                            <a class="read" href="#">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="support">
+                <div class="making">
+                    <h2>We love making ice cream - but using our business to make the world a better place gives our
+                        work
+                        its meaning</h2>
+                    <div class="better">
+                        <div class="logo1">
+                            <img src="logo2bottom.png" alt="">
+                            <h1>Thoughtful Ingredients</h1>
+                            <p>Our ingredients support positive change and make our ice cream taste sensational!</p>
+                            <a class="read" href="#">Product Sourcing</a>
+                        </div>
+                        <div class="logo1">
+                            <img src="logo3bottom.png" alt="">
+                            <h1>Shared Success</h1>
+                            <p>We aim to create prosperity for everyone that's connected to our business.</p>
+                            <a class="read" href="#">Our Mission & Values</a>
+                        </div>
+                        <div class="logo1">
+                            <img src="logo4bottom.png" alt="">
+                            <h1>Making a Difference</h1>
+                            <p>We build awareness and support for the activism causes we feel strongly about.</p>
+                            <a class="read" href="#">Issues We Care About</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="foot">
+                <div class="footer">
+                    <div class="cow">
+                        <img src="./woody.svg" alt="cow holding speaker">
+                    </div>
+                    <div class="main">
+                        <div class="footer1">
+                            <h1>It's Like Dessert For Your Inbox</h1>
+                            <p>Sign Up For Our Email Newsletter & Get The Inside Scoop!</p>
+                            <form>
+                                <div class="form">
+                                    <input type="email" name="myEmail" placeholder="Enter your email address"
+                                        class="control" required="">
+                                    <button type="submit" class="btn"><i class="fa-solid fa-arrow-right"
+                                            style="color: #000000;"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="footer1">
+                            <h1>Connect With Us!!</h1>
+                            <ul>
+                                <li>Send Us Feedback</li>
+                                <li>Unsubscribe</li>
+                            </ul>
+                            <h1 class="social">Follow Us</h1>
+                            <div class="icons">
+                                <div><i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i>
+                                </div>
+                                <div><i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                                </div>
+                                <div><i class="fa-brands fa-snapchat" style="color: #ffffff;"></i>
+                                </div>
+                                <div><i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                                </div>
+                                <div><i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer1">
+                            <h1>More Info</h1>
+                            <ul>
+                                <li>What's New</li>
+                                <li>About Us</li>
+                                <li>How We Do Business</li>
+                                <li>Factory Tours</li>
+                                <li>Press</li>
+                                <li>Jobs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="final">
+                        <div class="flag">
+                            <img src="flag2.jpg" alt="">
+                        </div>
+                        <div class="connection">
+                            <ul>
+                                <li> <a href="#">Accessibility</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Franchise</a></li>
+                                <li><a href="#">Press</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Notice</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                                <li><a href="#">Do Not Sell or Share My Personal Information</a></li>
+                                <li><a href="#">Consumer Health Data Privacy Policy</a></li>
+                                <li><a href="#">Limit Use of My Sensitive Personal Information</a></li>
+                            </ul>
+                            <p>AdChoices - Do Not Sell or Share</p>
+                        </div>
+                    </div>
+                    <div class="para">
+                        <p>©2024 Ben & Jerry's Homemade, Inc. This website is directed only to the Turkiye consumers for
+                            products and services of Ben & Jerry's Homemade, Inc. This website is not directed to
+                            consumers
+                            outside of the Turkiye.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
